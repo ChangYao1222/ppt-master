@@ -1,13 +1,12 @@
-# Operating System Files
 # macOS
 .DS_Store
 .DS_Store?
 ._*
+.AppleDouble
+.LSOverride
 .Spotlight-V100
 .Trashes
 Icon
-.AppleDouble
-.LSOverride
 
 # Windows
 Thumbs.db
@@ -23,29 +22,25 @@ $RECYCLE.BIN/
 .directory
 .Trash-*
 
-# Editor and IDE Files
-# VSCode
-.vscode/
-.claude/
-.spec-workflow/
+# Editors and local agent state
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
-
-# JetBrains IDEs
 .idea/
 *.iml
 *.iws
 *.ipr
-out/
-
-# Sublime Text
+*.code-workspace
 *.sublime-project
 *.sublime-workspace
+.claude/
+.codex/
+.agents/
+.spec-workflow/
 
-# Vim
+# Vim and Emacs
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
 [._]s[a-rt-v][a-z]
@@ -53,80 +48,23 @@ out/
 [._]sw[a-p]
 Session.vim
 .netrwhist
-
-# Emacs
-*~
 \#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
 *.elc
-auto-save-list
+auto-save-list/
 tramp
 .\#*
 
-# Temporary Files
-*.tmp
-*.temp
-*.bak
-*.swp
-*.swo
-*~.nib
-*.log
-
-# Project Specific
-# Generated SVG files (uncomment if you don't want to commit generated files)
-# output/
-# generated/
-# *.svg
-
-# Working drafts and notes (root-level only — project notes/ subdirs are tracked)
-/drafts/
-/notes/
-/scratch/
-.notes/
-
-# Test files
-test_output/
-temp_files/
-
-# Playwright (both MCP-side and visual-review script outputs)
-# MCP server auto-creates .playwright-mcp/ at CWD for snapshot/console logs
-.playwright-mcp/
-# Visual-review renderer writes per-project preview PNGs and the render lock
-projects/*/.preview/
-projects/*/.review/
-# Stray top-level screenshots created when MCP filename was a bare relative path
-# (the agreed convention is to always pass an absolute /tmp/... path)
-/probe-*.png
-/screenshot-*.png
-/page-*.png
-
-# Large media files (if any)
-*.psd
-*.ai
-*.sketch
-*.fig
-
-# Compressed files
-*.zip
-*.tar
-*.gz
-*.rar
-*.7z
-
-# Documentation build outputs
-docs/_build/
-docs/.doctrees/
-site/
-
-# Python (if you add Python tools later)
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
+.venv/
 venv/
+env/
 ENV/
 build/
 develop-eggs/
@@ -146,41 +84,91 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
 
-# Node.js (if you add Node.js tools later)
+# Node.js
 node_modules/
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
-yarn.lock
-.npm
+pnpm-debug.log*
 .eslintcache
 
-# Environment variables
+# Environment and secrets
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+!skills/ppt-master/.env.example
 
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# Cache and locks
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~.nib
+*.log
 .cache/
-*.lock
-.lock
 
-# Live preview direct-edit history (per-project, regenerated on edit)
-.live_edits.jsonl
+# Documentation and build outputs
+docs/_build/
+docs/.doctrees/
+site/
+out/
+test_output/
+temp_files/
 
-# Personal notes
+# Playwright and visual review outputs
+.playwright-mcp/
+.preview/
+.review/
+.render.lock
+.live_preview.lock
+/probe-*.png
+/screenshot-*.png
+/page-*.png
+
+# PPT Master project workspace
+# Generated user projects are local working artifacts. Move completed public
+# samples into examples/ before committing.
+projects/*
+!projects/README.md
+projects/*/.preview/
+projects/*/.review/
+projects/*/.live_edits.jsonl
+projects/*/.live_preview.lock
+projects/*/.render.lock
+projects/*/exports/
+
+# Root-level private notes and drafts
+/drafts/
+/notes/
+/scratch/
+.notes/
 TODO.md
 PERSONAL_NOTES.md
 
-# Projects directory - Work-in-progress projects (not version controlled)
-# Completed projects should be moved to examples/
-# Use cloud sync (iCloud/Dropbox) for backup and multi-device access
-projects/*
-!projects/README.md
+# Large design source files and archives
+*.psd
+*.ai
+*.sketch
+*.fig
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
